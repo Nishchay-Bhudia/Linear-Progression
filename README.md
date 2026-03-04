@@ -50,8 +50,7 @@ $$
 db = \frac{-2}{n} \sum (y - y_{pred})
 $$
 
-The parameters are updated using a **Learning Rate** (\(\alpha\)):
-
+The parameters are updated using a **Learning Rate** :
 $$
 w = w - (\alpha \cdot dw)
 $$
