@@ -1,6 +1,6 @@
 # Linear Regression from Scratch
 
-This repository contains a Python implementation of a simple **Linear Regression** model built using **NumPy** for calculations and **Matplotlib** for data visualization. Instead of using high-level machine learning libraries, this script demonstrates the underlying mechanics of **Gradient Descent**.
+
 
 ---
 
