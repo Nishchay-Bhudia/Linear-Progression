@@ -1,6 +1,4 @@
-# Linear Regression from Scratch
-
-
+# Linear Regression 
 
 ---
 
@@ -10,7 +8,7 @@ The program follows a standard supervised learning workflow:
 
 1. **Data Collection**: The user inputs raw `X` and `Y` coordinates via the console.  
 2. **Preprocessing**: Input strings are parsed and converted into NumPy float arrays.  
-3. **Optimization**: The script runs a training loop for 1,000 iterations (epochs) to find the line of best fit.  
+3. **Optimisation**: The script runs a training loop for 1,000 iterations (epochs) to find the line of best fit.  
 4. **Inference**: Once trained, the model prompts the user for a new `X` value to predict an unknown `Y` value.  
 5. **Evaluation**: Two charts are generated:
    - Regression line against the data  
@@ -40,7 +38,7 @@ $$
 
 ### 2. Gradient Descent
 
-Optimization is achieved by calculating the gradients (partial derivatives) of the MSE with respect to \(w\) and \(b\):
+Optimisation is achieved by calculating the gradients (partial derivatives) of the MSE with respect to \(w\) and \(b\):
 
 $$
 dw = \frac{-2}{n} \sum x(y - y_{pred})
@@ -95,7 +93,7 @@ python linear_regression.py
 
 2. Enter your `X` and `Y` data when prompted.  
 3. After training, input a new `X` value to get a predicted `Y`.  
-4. Visualizations will be displayed showing:
+4. Visualisations will be displayed showing:
    - The regression line  
    - Loss reduction over epochs  
 
