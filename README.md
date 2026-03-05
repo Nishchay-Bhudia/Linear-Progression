@@ -88,7 +88,7 @@ pip install numpy matplotlib
 1. Run the script:
 
 ```bash
-python linear_regression.py
+git clone https://github.com/Nishchay-Bhudia/Linear-Progression.git
 ```
 
 2. Enter your `X` and `Y` data when prompted.  
