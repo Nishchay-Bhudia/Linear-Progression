@@ -1,105 +1,43 @@
-# Linear Regression 
+# Linear Regression From Scratch
 
----
+One Python script that fits a straight line to numbers you type in, using gradient
+descent written out by hand in NumPy. No scikit-learn, no `fit()` call. I wrote it to
+see the maths run rather than to have a regression tool.
 
-## Script Functionality
+## What gradient descent is doing
 
-The program follows a standard supervised learning workflow:
+The line has two numbers that can change, a slope and an intercept. Start with both at
+zero and the line is flat and wrong, and you can measure exactly how wrong by squaring
+the gap between each predicted y and the real y. Calculus tells you which direction to
+nudge the slope and the intercept to make that error smaller, so the script nudges them
+a tiny amount in that direction and measures again. Do that a thousand times and the
+line walks itself into place.
 
-1. **Data Collection**: The user inputs raw `X` and `Y` coordinates via the console.  
-2. **Preprocessing**: Input strings are parsed and converted into NumPy float arrays.  
-3. **Optimisation**: The script runs a training loop for 1,000 iterations (epochs) to find the line of best fit.  
-4. **Inference**: Once trained, the model prompts the user for a new `X` value to predict an unknown `Y` value.  
-5. **Evaluation**: Two charts are generated:
-   - Regression line against the data  
-   - Error reduction (Loss) over time  
-
----
-
-## The Mathematics
-
-The model aims to solve the linear equation:
-
-$$
-y = wx + b
-$$
-
-Where:  
-- \(w\) is the **Weight (Slope)**  
-- \(b\) is the **Bias (Y-intercept)**  
-
-### 1. Cost Function (Mean Squared Error)
-
-The accuracy of the model is measured using **Mean Squared Error (MSE)**:
-
-$$
-MSE = \frac{1}{n} \sum_{i=1}^{n} (y_{pred, i} - y_i)^2
-$$
-
-### 2. Gradient Descent
-
-Optimisation is achieved by calculating the gradients (partial derivatives) of the MSE with respect to \(w\) and \(b\):
-
-$$
-dw = \frac{-2}{n} \sum x(y - y_{pred})
-$$
-
-$$
-db = \frac{-2}{n} \sum (y - y_{pred})
-$$
-
-The parameters are updated using a **Learning Rate** :
-
-$$
-w = w - (\alpha \cdot dw)
-$$
-
-$$
-b = b - (\alpha \cdot db)
-$$
-
----
-
-## Technical Requirements
-
-Ensure you have the following Python packages installed:
-
-- `numpy`  
-- `matplotlib`  
-
-Install them via pip:
+## Running it
 
 ```bash
 pip install numpy matplotlib
+python "linear progession.py"
 ```
 
----
+It asks for your x values, then your y values, both comma separated. After training it
+prints the learned slope and intercept, asks for one new x, and prints the predicted y.
+Two matplotlib windows follow: the data with the fitted line and the prediction marked,
+then the loss over the 1000 training steps. That second plot is the useful one. If the
+loss is still falling steeply at the right hand edge, training stopped too early.
 
-## Setup and Configuration
+## Current state
 
-- **Learning Rate**: Set to `0.000001`.  
-  - If the training loss does not decrease, this value may be too small.  
-  - If the loss becomes `NaN`, the value is likely too high.  
-- **Epochs**: Set to `1000`. Controls how many times the model sees the entire dataset during training.  
+It works, with rough edges I have left in on purpose so the script stays readable:
 
----
+- The learning rate is hardcoded at 0.000001, which is very cautious. On small numbers
+  the line barely moves in 1000 epochs. Raise it and watch the loss curve, that trade
+  between a rate too small to converge and one large enough to diverge is most of what
+  the project taught me.
+- No input validation. Give it x and y lists of different lengths and NumPy will throw.
+- Single feature only, one x per y.
+- The script name is misspelled ("progession"), which I have kept so old links still work.
 
-## Usage
+## Tech
 
-1. Run the script:
-
-```bash
-git clone https://github.com/Nishchay-Bhudia/Linear-Progression.git
-```
-
-2. Enter your `X` and `Y` data when prompted.  
-3. After training, input a new `X` value to get a predicted `Y`.  
-4. Visualisations will be displayed showing:
-   - The regression line  
-   - Loss reduction over epochs  
-
----
-
-## Purpose
-
-This project is designed for **educational purposes**, helping students and beginners understand the inner workings of Linear Regression and Gradient Descent without relying on high-level libraries.
+Python, NumPy, matplotlib. MIT licensed.
